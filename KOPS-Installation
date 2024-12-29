@@ -1,0 +1,40 @@
+dineshdevops.online
+
+mkdir .aws && cd .aws/
+cat <<EOF > credentials
+[default]
+YXdzX2FjY2Vzc19rZXlfaWQ9QUtJQVQ3MkhWR0tXNUpSTU5NWVYKYXdzX3NlY3JldF9hY2Nlc3Nfa2V5PVNraXVxUXVHdy9zSWZDdVFJdGdrMGs3eHlQY2FSWk5Cc0NSRHh2VWQ=
+EOF
+
+cat <<EOF > config
+[default]
+region=us-east-1
+output=json
+EOF
+
+[root@ip-172-31-88-136 .aws]# ls
+config  credentials
+[root@ip-172-31-88-136 .aws]# cat config
+[default]
+region=us-east-1
+output=json
+
+Download Kops binary and move it to /usr/local/bin directory to access the binary from any path
+
+[root@ip-172-31-88-136 .aws]# cd /usr/local/bin/
+[root@ip-172-31-88-136 bin]# curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x kops-linux-amd64
+mv kops-linux-amd64 kops
+kops version 
+
+Download the latest version of kubectl using the below url
+
+[root@ip-172-31-88-136 bin]# curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+[root@ip-172-31-88-136 bin]# chmod +x kubectl
+
+[root@ip-172-31-88-136 bin]# kubectl version
+
+kops create cluster --name=dineshdevops.online --state=s3://dineshdevops.online --zones=us-east-1a --node-count=2 --node-size=t3.medium --master-size=t3.medium --master-volume-size 20 --node-volume-size 10 --dns-zone=dineshdevops.online --yes
+kops validate cluster --name=dineshdevops.online --state=s3://dineshdevops.online
+kops delete cluster --name dineshdevops.online --state s3://dineshdevops.online  --yes
