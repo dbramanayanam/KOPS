@@ -3,7 +3,7 @@ dineshdevops.online
 mkdir .aws && cd .aws/
 cat <<EOF > credentials
 [default]
-YXdzX2FjY2Vzc19rZXlfaWQ9QUtJQVQ3MkhWR0tXNUpSTU5NWVYKYXdzX3NlY3JldF9hY2Nlc3Nfa2V5PVNraXVxUXVHdy9zSWZDdVFJdGdrMGs3eHlQY2FSWk5Cc0NSRHh2VWQ=
+
 EOF
 
 cat <<EOF > config
