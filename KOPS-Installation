@@ -45,3 +45,14 @@ kops edit cluster --name=<your-cluster-name> --state=s3://<your-kops-state-store
 
 Change the nodeCount or other parameters and save the file. Then apply the changes:
 kops update cluster --name=<your-cluster-name> --state=s3://<your-kops-state-store> --yes
+
+
+
+vi tool issues on Termius:
+***************************
+
+echo $TERM  --> if output is not xterm or xterm-256color add it 
+export TERM=xterm-256color
+add it in .bashrc file
+source .bashrc
+
