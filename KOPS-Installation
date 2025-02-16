@@ -30,10 +30,8 @@ kops version
 Download the latest version of kubectl using the below url
 
 [root@ip-172-31-88-136 bin]# curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
-[root@ip-172-31-88-136 bin]# chmod +x kubectl
-
-[root@ip-172-31-88-136 bin]# kubectl version
+chmod +x kubectl
+kubectl version
 
 kops create cluster --name=dineshdevops.online --state=s3://dineshdevops.online --zones=us-east-1a --node-count=2 --node-size=t3.medium --master-size=t3.medium --master-volume-size 20 --node-volume-size 10 --dns-zone=dineshdevops.online --yes
 kops validate cluster --name=dineshdevops.online --state=s3://dineshdevops.online
