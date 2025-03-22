@@ -78,7 +78,8 @@ tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
 
 
-
+creating EKS cluster:
+**************************
 eksctl create cluster \
   --name my-cluster \
   --region us-east-1 \
@@ -88,3 +89,5 @@ eksctl create cluster \
   --nodes-min 2 \
   --nodes-max 4 \
   --managed
+
+aws eks --region us-east-1 update-kubeconfig --name my-cluster
