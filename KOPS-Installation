@@ -45,6 +45,15 @@ Change the nodeCount or other parameters and save the file. Then apply the chang
 kops update cluster --name=<your-cluster-name> --state=s3://<your-kops-state-store> --yes
 
 
+kops edit ig nodes-us-east-1a --name=dineshdevops.shop --state=s3://dineshdevops.shop
+spec:
+  machineType: t3.small  # 👈 Change to your desired spec: 2 vCPU / 2 GiB RAM
+  minSize: 2
+  maxSize: 2
+kops update cluster --name=dineshdevops.shop --state=s3://dineshdevops.shop --yes
+kops rolling-update cluster --name=dineshdevops.shop --state=s3://dineshdevops.shop --yes
+
+
 
 vi tool issues on Termius:
 ***************************
